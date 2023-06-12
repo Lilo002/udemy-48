@@ -1,1 +1,19 @@
-node_modules
+//base
+@import 'base/mixins';
+@import 'base/variables';
+
+//layout
+@import 'layout/promo';
+
+//blocks
+@import 'blocks/header';
+@import 'blocks/buttons';
+
+* {
+    font-family: 'Museo Sans Cyrl';
+}
+
+.container {
+    max-width: 950px;
+    margin: 0 auto;
+}

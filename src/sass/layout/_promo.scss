@@ -1,5 +1,90 @@
 .promo {
     min-height: 650px;
     padding: 21px 0 93px 0;
-    background: url(../../img/bg.png) center (center/cover) no-repeat;
+    background: url(../img/bg.png) center (center/cover) no-repeat;
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        margin-top: 90px;
+        @media (max-width:500px) {
+            align-items: center;
+        }
+    }
+    &__header {
+        font-weight: 700;
+        font-size: 42px;
+        text-transform: uppercase;
+        color: $second-color;
+        @media(max-width:980px) {
+            font-size: 38px;
+        }
+        @media (max-width:500px) {
+            font-size: 32px;
+            text-align: center;
+        }
+    }
+    &__subheader {
+        margin-top: 17px;
+        font-weight: 500;
+        font-size: 24px;
+        text-transform: uppercase;
+        color: $second-color;
+        @media(max-width:980px) {
+            font-size: 20px;
+        }
+        @media (max-width:500px) {
+            font-size: 16px;
+            text-align: center;
+        }
+    }
+    &__icons{
+        margin-top: 60px;
+        display: flex;
+        justify-content: space-between;
+        width: 424px;
+        @media (max-width:500px) {
+            width: 100%;
+        }
+    }
+    &__icon {
+        width: 110px;
+        font-weight: 500;
+        font-size: 14px;
+        color: $second-color;
+        text-align: center;
+        @media(max-width:980px) {
+            font-size: 12px;
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+    }
+    &__link {
+        margin-top: 8px;
+        font-weight: 500;
+        font-size: 16px;
+        color: $second-color ;
+        @media(max-width:980px) {
+            font-size: 12px;
+        }
+        a {
+            font-weight: 500;
+            font-size: 16px;
+            color: $second-color;
+            transition: all 0.5s;
+            text-decoration: underline;
+            text-transform: uppercase;
+            @media(max-width:980px) {
+                font-size: 12px;
+            }
+            &:hover {
+                color: $main-color;
+            }
+        }
+    }
 }
+
+

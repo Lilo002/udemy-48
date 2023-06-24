@@ -4,10 +4,19 @@
 
 //layout
 @import 'layout/promo';
+@import 'layout/advantages';
+@import 'layout/consultation';
+@import 'layout/carousel';
+@import 'layout/catalog';
+@import 'layout/reviews';
+@import 'layout/footer';
+@import 'layout/modal';
+
 
 //blocks
 @import 'blocks/header';
 @import 'blocks/buttons';
+@import 'blocks/forms';
 
 * {
     font-family: 'Museo Sans Cyrl';
@@ -16,4 +25,13 @@
 .container {
     max-width: 950px;
     margin: 0 auto;
+    padding: 0 15px;
+}
+
+.pd21 {
+    padding-right: 21px;
+}
+
+html {
+    scroll-behavior: smooth;
 }

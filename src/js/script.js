@@ -4,8 +4,8 @@
 $(document).ready(function(){
     $('.carousel__inner').slick({
         speed: 1200,
-        prevArrow: '<button type="button" class="slick-prev"><img src="../icons/left.svg" alt="prev"></button>',
-        nextArrow: '<button type="button" class="slick-next"><img src="../icons/right.svg" alt="next"></button>',
+        prevArrow: '<button type="button" class="slick-prev"><img src="icons/left.svg" alt="prev"></button>',
+        nextArrow: '<button type="button" class="slick-next"><img src="icons/right.svg" alt="next"></button>',
         responsive: [
             {
                 breakpoint: 969,
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.classList.remove('modal_closed');
         overlay.classList.remove('overlay_closed');
         body.style.overflow = 'hidden';
-        body.classList.add('pd21');
+        body.classList.add('pr');
         overlay.dataset.close = modalSelector;
     }
 
@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.classList.add('modal_closed');
         overlay.classList.add('overlay_closed');
         body.style.overflow = '';
-        body.classList.remove('pd21');
+        body.classList.remove('pr');
         overlay.dataset.close = '';
     }
 
@@ -166,48 +166,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const forms = document.querySelectorAll('.feed-form'),
           openGratitudeBtn = document.querySelectorAll('[data-submit]');
+          
+    forms.forEach(item => {
+        bindPostData(item);
+    });
+    
+    const postData = async (url, data) => {
+        let res = await fetch(url, {
+            /* mode: 'no-cors', */
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: data
+        });
 
-    function postData(form) {
+        return await res.json();
+    };
+
+    function bindPostData(form) {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            const request = new XMLHttpRequest();
-            request.open('POST', 'server.php');
-
-           /*  request.setRequestHeader('Content-type', 'multipart/form-data'); */
             const formData = new FormData(form);
 
-            request.send(formData);
+            const json = JSON.stringify(Object.fromEntries(formData.entries()));
 
-            request.addEventListener('load', () => {
-                if(request.status === 200) {
-                    console.log(request.response);
-                    if(overlay.dataset.close !== '' && overlay.dataset.close) {
-                        closeModal(overlay.dataset.close);
-                    }
-                    openModal('gratitude');
-                } else {
-                    console.log(request.response);
-                    if(overlay.dataset.close !== '' && overlay.dataset.close) {
-                        closeModal(overlay.dataset.close);
-                    }
-                    openModal('error');
-                    console.log(request.status);
+            postData('http://localhost:3000/request', json)
+            .then(data => {
+                if(overlay.dataset.close !== '' && overlay.dataset.close) {
+                    closeModal(overlay.dataset.close);
                 }
-            });
+                openModal('gratitude');
+            }).catch(() => {
+                if(overlay.dataset.close !== '' && overlay.dataset.close) {
+                    closeModal(overlay.dataset.close);
+                }
+                openModal('error');
+            }).finally(() => {
+                form.reset();
+            })
         });
-    }
-
-    forms.forEach(item => {
-        postData(item);
-    })
-
-
-
-
-
-
-
-    
+    }   
 
 });

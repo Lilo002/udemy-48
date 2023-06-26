@@ -1,5 +1,6 @@
 //base
 @import 'base/mixins';
+@import 'base/animation';
 @import 'base/variables';
 
 //layout
@@ -30,6 +31,9 @@
 
 .pr {
     padding-right: 17.5px;
+    @media (max-width:980px) {
+        padding-right: 0;
+    }
 }
 
 html {

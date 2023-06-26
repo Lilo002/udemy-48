@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
     <link rel="stylesheet" href="css/font.css">
     <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="css/style.min.css">
-    
 </head>
 <body>
     <section class="promo">
@@ -64,7 +64,7 @@
                         <div class="advantage__descr">Наши сотрудники всегда готовы поделиться своим опытом, так как сами бегают полумарафоны, переплыли Босфор, готовятся к соревнованиям по триатлону!</div>
                     </div>
                     <div class="advantages__item advantage">
-                        <img src="icons/aboutUs/heart.png" alt="cup" class="advantage__img">
+                        <img src="icons/aboutUs/heart.png" alt="heart" class="advantage__img advantage__img_animated">
                         <div class="advantage__title">Заботимся о здоровье</div>
                         <div class="advantage__descr">Мы работаем для того, чтобы Ваши занятия спортом шли на пользу Вашему здоровью и были в радость Вам и Вашим близким!</div>
                     </div>
@@ -83,9 +83,9 @@
                     <h2 class="consultation__title">Получите бесплатную консультацию по подбору пульсометра </h2>
                     <div class="consultation__subtitle">Просто заполните форму заявки и мы перезвоним вам в течении 10 минут</div>
                     <form class="feed-form" action="#">
-                        <input required type="text" name="username" placeholder="Ваше имя">
-                        <input required type="tel" name="usertelephone" placeholder="Ваш телефон">
-                        <input required type="email" name="usere-mail" placeholder="Ваш E-mail">
+                        <input required type="text" name="name" placeholder="Ваше имя">
+                        <input required data-input-tel type="tel" name="phone" placeholder="Ваш телефон">
+                        <input required type="email" name="email" placeholder="Ваш E-mail">
                         <button data-submit="gratitude" class="button button_form">заказать кОНСУЛЬТАЦИЮ</button>  
                     </form>
                 </div>
@@ -404,7 +404,7 @@
             <div class="container">
                 <h2 class="reviews__title">отзывы клиентов</h2>
                 <div class="reviews__content">
-                    <div class="reviews__item review">
+                    <div class="reviews__item review animate__animated">
                         <img src="img/client1.png" alt="client" class="review__img">
                         <div class="review__content">
                             <div class="review__title">Ирина Иванченко</div>
@@ -416,7 +416,7 @@
                             Спасибо, RunSmart!</div>
                         </div>
                     </div>
-                    <div class="reviews__item review">
+                    <div class="reviews__item review animate__animated">
                         <img src="img/client2.png" alt="client" class="review__img">
                         <div class="review__content">
                             <div class="review__title">Иван Сёмочкин</div>
@@ -428,7 +428,7 @@
                             С ними подготовился к своему первому полумарафону! Спасибо!!!</div>
                         </div>
                     </div>
-                    <div class="reviews__item review">
+                    <div class="reviews__item review animate__animated">
                         <img src="img/client3.png" alt="cient" class="review__img">
                         <div class="review__content">
                             <div class="review__title">Юлия Дашкина</div>
@@ -463,9 +463,9 @@
             <div class="modal__subtitle">Просто заполните форму заявки</div>
             <div class="modal__descr">и мы перезвоним вам в течении 10 минут</div>
             <form class="feed-form" action="#">
-                <input required type="text" name="username" placeholder="Ваше имя">
-                <input required type="tel" name="usertelephone" placeholder="Ваш телефон">
-                <input required type="email" name="usere-mail" placeholder="Ваш E-mail">
+                <input required type="text" name="name" placeholder="Ваше имя">
+                <input required data-input-tel type="tel" name="phone" placeholder="Ваш телефон">
+                <input required type="email" name="email" placeholder="Ваш E-mail">
                 <button data-submit="gratitude" class="button button_form">заказать кОНСУЛЬТАЦИЮ</button>  
             </form>
         </div>
@@ -474,9 +474,9 @@
             <div class="modal__subtitle">Ваш заказ:</div>
             <div class="modal__descr"></div>
             <form class="feed-form" action="#">
-                <input required type="text" name="username" placeholder="Ваше имя">
-                <input required type="tel" name="usertelephone" placeholder="Ваш телефон">
-                <input required type="email" name="user-email" placeholder="Ваш E-mail">
+                <input required type="text" name="name" placeholder="Ваше имя">
+                <input required data-input-tel type="tel" name="phone" placeholder="Ваш телефон">
+                <input required type="email" name="email" placeholder="Ваш E-mail">
                 <button data-submit="gratitude" class="button button_form">купить</button>  
             </form>
         </div>
@@ -489,6 +489,12 @@
             <div data-close="error" class="modal__close">&times;</div>
             <div class="modal__subtitle">Что-то пошло не так!</div>
             <div class="modal__descr">Попробуйте оставить заявку позже или свяжитесь с нами по телефону</div>
+        </div>
+        <div class="modal modal_mini modal_loading modal_closed" id="loading">
+            <div data-close="error" class="modal__close">&times;</div>
+            <div class="modal__subtitle">Идет отправка данных!</div>
+            <div class="modal__descr">Пожалуйста подождите...</div>
+            <img class="modal_spinner" src="icons/spinner.svg" alt="spinner">
         </div>
     </div>
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>

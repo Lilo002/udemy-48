@@ -316,14 +316,30 @@ document.addEventListener('DOMContentLoaded', () => {
                     console.log(item.offsetHeight);
                     console.log(currentPosition);
 
-                    setTimeout(addAnimation, timmer, item);
-
-                    
+                    setTimeout(addAnimation, timmer, item);   
                 }
             })
         /* document.removeEventListener('scroll', onScroll); */
         }
-            
     }
+
+    //scrollUp
+
+    const scrollUpBTN = document.querySelector('.img-up');
+
+    function makeScrollBtnVisible(e) {
+        scrollUpBTN.classList.toggle('img-up_active', window.scrollY > 500)
+    };
+
+    function goToTop(e) {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
+
+    scrollUpBTN.addEventListener('click', goToTop);
+
+    window.addEventListener('scroll', makeScrollBtnVisible);
 
 });

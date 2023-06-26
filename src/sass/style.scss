@@ -39,3 +39,20 @@
 html {
     scroll-behavior: smooth;
 }
+
+.img-up {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    width: 50px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s;
+    cursor: pointer;
+    &_active {
+        top: 90vh;
+        visibility: visible;
+        opacity: 1;
+    }
+}
+

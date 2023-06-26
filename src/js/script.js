@@ -313,11 +313,7 @@ document.addEventListener('DOMContentLoaded', () => {
             reviews.forEach((item, i) => {
                 if((item.offsetTop - reviewSection.offsetHeight / 1.2) <= currentPosition) {
                     let timmer = i * 300 + 300;
-
-                    console.log(item.offsetTop);
-                    console.log(item.offsetHeight);
-                    console.log(currentPosition);
-
+                    
                     setTimeout(addAnimation, timmer, item);   
                 }
             })

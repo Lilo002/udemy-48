@@ -29,11 +29,13 @@ document.addEventListener('DOMContentLoaded', () => {
     function openMainInformation(i) {
         tabItemMain[i].classList.add('catalog-item__content_active');
         tabItemDescr[i].classList.remove('catalog-item__list_active');
+        btnBack[i].classList.remove('catalog-item__back_active');
     };
 
     function openDescrInformation(i) {
         tabItemMain[i].classList.remove('catalog-item__content_active');
         tabItemDescr[i].classList.add('catalog-item__list_active');
+        btnBack[i].classList.add('catalog-item__back_active');
     };
 
     //openDescription

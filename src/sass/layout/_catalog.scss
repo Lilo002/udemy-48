@@ -149,6 +149,7 @@
         &__wrapper {
             display: flex;
             width: calc(200% + 40px);
+            position: relative;
         }
         &__content {
             width: 50%;
@@ -163,7 +164,7 @@
         &__back {
             position: absolute;
             bottom: 0;
-            left: 50%;
+            left: 75%;
             transform: translateX(calc(-50% - 19px));
             display: block;
             color: $main-color;
@@ -171,6 +172,14 @@
             font-size: 14px;
             text-decoration: underline;
             text-transform: uppercase;
+            transition: all 0.5s;
+            opacity: 0;
+            visibility: hidden;
+            &_active {
+                left: 27%;
+                opacity: 1;
+                visibility: visible;
+            }
             &:hover {
                 color: $main-color;
             }
